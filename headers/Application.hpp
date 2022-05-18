@@ -1,3 +1,4 @@
+#pragma once
 #include <cmath>
 #include <random>
 #include <SFML/Graphics.hpp>
@@ -7,7 +8,7 @@
 
 
 class Application {
-private:
+friend struct Window;
 class Settings {
     public:
         int window_w, window_h, window_step, samples, max_ref, window_step_x, window_step_y;
