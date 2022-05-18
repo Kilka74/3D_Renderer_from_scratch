@@ -268,10 +268,10 @@ vec3 traceRay(vec3 ro, vec3 rd) {
         vec4 refCol = castRay(ro, rd);
         col *= refCol.xyz;
         if (refCol.a == 1000.0) {
-            break;
+            return col;
         }
     }
-    return col;
+    return vec3(0.0);
 }
 
 void main() {
