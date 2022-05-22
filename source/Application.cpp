@@ -46,6 +46,8 @@ void Application::load_objects(const std::string &file) {
     }
     in.close();
 }
+
+
 void Application::run() {
 
     sf::RenderWindow window(sf::VideoMode(curr_settings.window_w, curr_settings.window_h),
@@ -90,6 +92,7 @@ void Application::run() {
                 window.setMouseCursorVisible(false);
                 curr_settings.mouseHidden = true;
             } else if (event.type == sf::Event::KeyPressed) {
+
                 switch (event.key.code) {
                     case sf::Keyboard::Escape:
                         window.setMouseCursorVisible(true);
@@ -152,6 +155,7 @@ void Application::run() {
                     default:
                         break;
                 }
+
             }
         }
         if (curr_settings.mouseHidden && change) {
