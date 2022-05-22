@@ -1,15 +1,18 @@
 # 3D_renderer_hse
 
-Программный проект 2021-2022
+HSE AMI CS course project.
+Ray tracing algorithm
 
-Сделали Коля и Арслан
+Make:
+Type ``make`` to build the program. Type ``make clean`` to remove .o files.
 
-Сборка:
-``g++ Main.cpp -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system -O2``
+To run it type: ``./bin/sfml-app``
 
-Запуск: ``./sfml-app``
-
-Управление: ``WASD`` - передвижения относительно позиции камеры, ``Space/C`` - передвижение вверх/вниз,
-``Arrows`` - управление камерой, ``Period/Comma`` - изменение позиции наблюдателя относительно экрана, 
-``Quote/Semicolon/LBracket/RBracket`` - искажение экрана, ``Enter`` - сброс всех параметров до начальных,
-``Esc`` - появится курсор и можно будет закрыть окно с приложением
+# Using
+``WASD`` - move camera
+``Space/C`` - up/down,
+``Arrows`` - rotate camera,
+``Period/Comma`` - change "viewpoint", 
+``Quote/Semicolon/LBracket/RBracket`` - screen distorsion, 
+``Enter`` - reset all,
+``Esc`` - show coursor
