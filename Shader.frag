@@ -268,20 +268,24 @@ vec3 traceRay(vec3 ro, vec3 rd) {
         vec4 refCol = castRay(ro, rd);
         col *= refCol.xyz;
         if (refCol.a == 1000.0) {
-            break;
+            return col;
         }
     }
-    return col;
+    return vec3(0.0);
 }
 
-void main() {
-    vec3 cord = get_cord(gl_TexCoord[0].xy);
+vec3 tracePath(vec3 cord) {
     vec3 color = vec3(0.0);
     for (int i = 0; i < u_samples; i++) {
         color += traceRay(u_pos, get_dir(cord));
     }
     color /= u_samples;
+    return color;
+}
 
+void main() {
+    vec3 cord = get_cord(gl_TexCoord[0].xy);
+    vec3 color = tracePath(cord);
     float white = 20.0;
     color *= white * 8.0;
     color = (color * (1.0 + color / white / white)) / (1.0 + color);
