@@ -6,6 +6,7 @@
 #include <string>
 #include <utility>
 #include "Settings.hpp"
+#include "KeyboardHandler.hpp"
 
 
 class Application {
