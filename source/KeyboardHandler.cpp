@@ -1,15 +1,14 @@
 #include "../headers/KeyboardHandler.hpp"
+#include "../headers/Settings.hpp"
 
 
 KeyboardHandler::KeyboardHandler(
     sf::RenderWindow& window,
     Settings& current_settings,
-    sf::Vector3f& dir, 
-    const Settings& base_settings) :
+    sf::Vector3f& dir) :
     _window(window),
     _current_settings(current_settings),
-    _dir(dir),
-    _base_settings(base_settings)
+    _dir(dir)
     {}
 
 
@@ -48,9 +47,6 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
             break;
         case sf::Keyboard::Down:
             _current_settings.window_step_y += _current_settings.window_step;
-            break;
-        case sf::Keyboard::Enter:
-            _current_settings = _base_settings;
             break;
         case sf::Keyboard::Period:
             _current_settings.offset.x += _current_settings.offset_step;
