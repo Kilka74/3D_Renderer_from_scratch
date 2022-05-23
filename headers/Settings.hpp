@@ -1,7 +1,6 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <string>
 
+#include <SFML/Graphics.hpp>
 
 struct Settings {
 public:
@@ -10,6 +9,4 @@ public:
     float speed, offset_step, max_dist;
     sf::Vector3f pos, offset;
     sf::Vector2f lightPos;
-    Settings() = default;
-    Settings(const std::string& file);
 };
