@@ -42,8 +42,8 @@ SettingsImage FileReader::get_settings(const std::string &filename) {
     return ans;
 }
 
-World FileReader::get_world(const std::string &filename) {
-    World ans;
+WorldImage FileReader::get_world(const std::string &filename) {
+    WorldImage ans;
     std::ifstream in(filename);
     int count;
     std::string name;
