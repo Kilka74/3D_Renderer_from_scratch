@@ -1,6 +1,6 @@
 <img alt="logo" src="https://github.com/MCJOHN974/3D_renderer_hse/blob/main/screenshots/badge.png" height="200px" />
 
-![Lines of code](https://img.shields.io/tokei/lines/github//Kilka74/3D_Renderer_from_scratch)
+![Lines of code](https://img.shields.io/tokei/lines/github/Kilka74/3D_Renderer_from_scratch)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com//Kilka74/3D_Renderer_from_scratch/blob/master/LICENSE.txt)
 
 
@@ -26,4 +26,4 @@ To start the program just run ``./bin/sfml-app``
 
 # Screenshots
 
-![Screenshot1](https://github.com/MCJOHN974/3D_renderer_hse/blob/mainscreenshots/screenshot1.png)
+![Screenshot1](screenshots/screenshot1.png)
