@@ -16,7 +16,7 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
     switch (code) {
         case sf::Keyboard::Escape:
             _window.setMouseCursorVisible(true);
-            _current_settings.mouseHidden = false;
+            _current_settings.ShowMouse();
             break;
         case sf::Keyboard::W:
             _dir += {1.0, 0.0, 0.0};
@@ -31,43 +31,43 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
             _dir += {0.0, 1.0, 0.0};
             break;
         case sf::Keyboard::Space:
-            _current_settings.pos.z -= _current_settings.speed;
+            _current_settings.ShiftUp();
             break;
         case sf::Keyboard::C:
-            _current_settings.pos.z += _current_settings.speed;
+            _current_settings.ShiftDown();
             break;
         case sf::Keyboard::Left:
-            _current_settings.window_step_x -= _current_settings.window_step;
+            _current_settings.RotateLeft();
             break;
         case sf::Keyboard::Right:
-            _current_settings.window_step_x += _current_settings.window_step;
+            _current_settings.RotateRight();
             break;
         case sf::Keyboard::Up:
-            _current_settings.window_step_y -= _current_settings.window_step;
+            _current_settings.RotateUp();
             break;
         case sf::Keyboard::Down:
-            _current_settings.window_step_y += _current_settings.window_step;
+            _current_settings.RotateDown();
             break;
         case sf::Keyboard::Period:
-            _current_settings.offset.x += _current_settings.offset_step;
+            _current_settings.ObserverAway();
             break;
         case sf::Keyboard::Comma:
-            _current_settings.offset.x -= _current_settings.offset_step;
+            _current_settings.ObserverCloser();
             break;
         case sf::Keyboard::Quote:
-            _current_settings.offset.y += _current_settings.offset_step;
+            _current_settings.Distorsion1();
             break;
         case sf::Keyboard::Semicolon:
-            _current_settings.offset.y -= _current_settings.offset_step;
+            _current_settings.Distorsion2();
             break;
         case sf::Keyboard::LBracket:
-            _current_settings.offset.z += _current_settings.offset_step;
+            _current_settings.Distorsion3();
             break;
         case sf::Keyboard::RBracket:
-            _current_settings.offset.z -= _current_settings.offset_step;
+            _current_settings.Distorsion4();
             break;
         case sf::Keyboard::Slash:
-            _current_settings.offset = {1.0, 1.0, 1.0};
+            _current_settings.Slash();
             break;
         default:
             break;

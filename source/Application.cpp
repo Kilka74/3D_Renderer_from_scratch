@@ -18,12 +18,12 @@ void Application::run() {
                 window._window.close();
             } else if (event.type == sf::Event::MouseButtonPressed) {
                 window._window.setMouseCursorVisible(false);
-                settings.mouseHidden = true;
+                settings.HideMouse();
             } else if (event.type == sf::Event::KeyPressed) {
                 handler.handle(event.key.code);
             }
         }
-        if (settings.mouseHidden && window._change) {
+        if (settings.IsMouseHidden() && window._change) {
             Redraw(UpdatePicture(dir));
         }
         window._change = false;
@@ -31,8 +31,8 @@ void Application::run() {
 }
 
 sf::Vector2f Application::UpdatePicture(sf::Vector3f& dir) {
-    float mx = (float(settings.window_step_x) / float(settings.window_w) - 0.5f);
-    float my = (float(settings.window_step_y) / float(settings.window_h) - 0.5f);
+    float mx = settings.CountMX();
+    float my = settings.CountMY();
     sf::Vector3f dirTemp;
     dirTemp.z = dir.z * std::cos(-my) - dir.x * std::sin(-my);
     dirTemp.x = dir.z * std::sin(-my) + dir.x * std::cos(-my);
@@ -40,13 +40,12 @@ sf::Vector2f Application::UpdatePicture(sf::Vector3f& dir) {
     dir.x = dirTemp.x * std::cos(mx) - dirTemp.y * std::sin(mx);
     dir.y = dirTemp.x * std::sin(mx) + dirTemp.y * std::cos(mx);
     dir.z = dirTemp.z;
-    settings.pos += dir * settings.speed;
+    settings.ChangePos(dir);
     return sf::Vector2f(mx, my);
 }
 
 void Application::Redraw(sf::Vector2f vec) {
-    window._shader.setUniform("u_offset", settings.offset);
-    window._shader.setUniform("u_pos", settings.pos);
+    settings.PrepareShader(window._shader);
     window._shader.setUniform("u_angle", vec);
     window._shader.setUniform("u_seed1",
                                sf::Vector2f((float) window._dist(window._e2), (float) window._dist(window._e2)) *
