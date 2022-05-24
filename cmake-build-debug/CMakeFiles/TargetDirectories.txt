@@ -1,3 +1,0 @@
-/home/arslan/3D_Renderer_from_scratch/cmake-build-debug/CMakeFiles/3D_Renderer_from_scratch.dir
-/home/arslan/3D_Renderer_from_scratch/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/arslan/3D_Renderer_from_scratch/cmake-build-debug/CMakeFiles/rebuild_cache.dir
