@@ -73,9 +73,9 @@ WorldImage FileReader::get_world(const std::string &filename) {
             v1.z *= -1;
             v2.z *= -1;
             in >> col.x >> col.y >> col.z >> col.w;
-            ans.tri_cord.push_back(sf::Glsl::Mat3({v0.x, v0.y, v0.z,
-                                               v1.x, v1.y, v1.z,
-                                               v2.x, v2.y, v2.z}));
+            ans.tri_cord.push_back(sf::Glsl::Mat3({v0.x, v1.x, v2.x,
+                                               v0.y, v1.y, v2.y,
+                                               v0.z, v1.z, v2.z}));
             ans.tri_col.push_back(col);
         } else if (name == "pla") {
             in >> ans.pla_norm.x >> ans.pla_norm.y >> ans.pla_norm.z;
