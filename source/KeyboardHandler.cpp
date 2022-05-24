@@ -67,6 +67,9 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
         case sf::Keyboard::Slash:
             _current_settings.Slash();
             break;
+        case sf::Keyboard::Enter:
+            _current_settings.Reset();
+            break;
         default:
             break;
     }

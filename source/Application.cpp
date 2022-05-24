@@ -10,6 +10,7 @@ Application::Application(const std::string &settings_file, const std::string &ob
 void Application::run() {
     while (window._window.isOpen()) {
         sf::Event event{};
+        settings.ResetDir();
         while (window._window.pollEvent(event)) {
             window._change = true;
             KeyboardHandler handler(window._window, settings);

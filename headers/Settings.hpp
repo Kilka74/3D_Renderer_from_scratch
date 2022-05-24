@@ -70,4 +70,6 @@ public:
     void MoveRight();
 
     sf::Vector2f UpdatePicture();
+    void ResetDir();
+    void Reset();
 };
