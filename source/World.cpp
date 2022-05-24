@@ -1,4 +1,8 @@
 #include "../headers/World.hpp"
+#include "../headers/Sphere.hpp"
+#include "../headers/Box.hpp"
+#include "../headers/Triangle.hpp"
+
 
 void World::LoadToShader(sf::Shader& shader) const {
     shader.setUniform("u_pla_norm", pla_norm);
@@ -12,4 +16,18 @@ void World::LoadToShader(sf::Shader& shader) const {
     shader.setUniform("u_tri_num", int(tri_col.size()));
     shader.setUniformArray("u_tri_cord", tri_cord.data(), tri_cord.size());
     shader.setUniformArray("u_tri_col", tri_col.data(), tri_col.size());
+}
+
+std::vector<Figure*> World::Figures() {
+    std::vector<Figure*> ans;
+    for (auto& v : sph_cord) {
+        ans.push_back(new Sphere(&v));
+    }
+    for (auto& v : box_cord) {
+        ans.push_back(new Box(&v));
+    }
+    for (auto& v : tri_cord) {
+        ans.push_back(new Triangle(&v));
+    }
+    return ans;
 }

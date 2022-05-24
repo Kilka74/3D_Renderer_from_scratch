@@ -1,5 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Figure.hpp"
+#include <vector>
+
 
 struct WorldImage {
     sf::Glsl::Vec3 pla_norm;
@@ -34,4 +37,5 @@ public:
         tri_col(image.tri_col) {};
 
     void LoadToShader(sf::Shader& shader) const;
+    std::vector<Figure*> Figures();
 };

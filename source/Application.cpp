@@ -1,12 +1,15 @@
 #include "../headers/Application.hpp"
+#include "../headers/Figure.hpp"
 
 void Application::run() {
+    auto figures = world.Figures();
     while (window.IsOpen()) {
         sf::Event event{};
         camera.ResetDir();
         while (window.PollEvent(event)) {
+            window.ReloadWorld(world);
             window.StartChanges();
-            KeyboardHandler handler(window, camera);
+            KeyboardHandler handler(window, camera, figures);
             if (event.type == sf::Event::Closed) {
                 window.Close();
             } else if (event.type == sf::Event::MouseButtonPressed) {
@@ -19,5 +22,8 @@ void Application::run() {
             window.Redraw(camera.UpdatePicture(), camera);
         }
         window.FinishChanges();
+    }
+    for (auto& f : figures) {
+        delete f;
     }
 }

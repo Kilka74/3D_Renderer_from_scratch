@@ -1,4 +1,6 @@
 #include "../headers/KeyboardHandler.hpp"
+#include <iostream>
+
 
 void KeyboardHandler::handle(const sf::Keyboard::Key &code) {
     switch (code) {
@@ -56,7 +58,52 @@ void KeyboardHandler::handle(const sf::Keyboard::Key &code) {
         case sf::Keyboard::Slash:
             _camera.ResetOffset();
             break;
+        case sf::Keyboard::F1:
+            figures[cur_fig]->MoveBack();
+            break;
+        case sf::Keyboard::F2:
+            figures[cur_fig]->MoveDown();
+            break;
+        case sf::Keyboard::F3:
+            figures[cur_fig]->MoveForward();
+            break;
+        case sf::Keyboard::F4:
+            figures[cur_fig]->MoveLeft();
+            break;
+        case sf::Keyboard::F5:
+            figures[cur_fig]->MoveRight();
+            break;
+        case sf::Keyboard::F6:
+            figures[cur_fig]->MoveUp();
+            break;
+        case sf::Keyboard::Q:
+            std::cout << "Q\n";
+            PrevFigure();
+            std::cout << cur_fig << '\n';
+            break;
+        case sf::Keyboard::E:
+            std::cout << "E\n";
+            NextFigure();
+            std::cout << cur_fig << '\n';
+            break;
         default:
             break;
+    }
+}
+
+void KeyboardHandler::NextFigure() {
+    std::cout << "Figures size = " << figures.size() << '\n';
+    if (cur_fig < figures.size() - 1) {
+        cur_fig++;
+    } else {
+        cur_fig = 0;
+    }
+}
+
+void KeyboardHandler::PrevFigure() {
+    if (cur_fig != 0) {
+        cur_fig--;
+    } else {
+        cur_fig = figures.size() - 1;
     }
 }
