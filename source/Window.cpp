@@ -1,5 +1,6 @@
 #include "../headers/Window.hpp"
 
+
 Window::Window(const Settings &settings, const World &world, const std::string &shader_name) :
         _window(sf::VideoMode(settings.window_w, settings.window_h),
                 "Ray tracing",
@@ -7,10 +8,8 @@ Window::Window(const Settings &settings, const World &world, const std::string &
         _shader(), _emptyTexture() {
     _window.setFramerateLimit(40);
     _window.setMouseCursorVisible(false);
-
     _emptyTexture.create(settings.window_w, settings.window_h);
     _emptySprite = sf::Sprite(_emptyTexture.getTexture());
-
     _shader.loadFromFile(shader_name, sf::Shader::Fragment);
     _shader.setUniform("u_resolution", sf::Vector2f(float(settings.window_w), float(settings.window_h)));
     _shader.setUniform("u_light", settings.lightPos);
@@ -28,7 +27,6 @@ Window::Window(const Settings &settings, const World &world, const std::string &
     _shader.setUniform("u_tri_num", int(world.tri_col.size()));
     _shader.setUniformArray("u_tri_cord", world.tri_cord.data(), world.tri_cord.size());
     _shader.setUniformArray("u_tri_col", world.tri_col.data(), world.tri_col.size());
-
     std::random_device RandomGenerator;
     _e2 = std::mt19937(RandomGenerator());
     _dist = std::uniform_real_distribution<>(0.0f, 1.0f);

@@ -1,5 +1,4 @@
 #pragma once
-
 #include <cmath>
 #include <random>
 #include <string>
@@ -7,6 +6,7 @@
 #include "Settings.hpp"
 #include "KeyboardHandler.hpp"
 #include "Window.hpp"
+#include <SFML/Graphics.hpp>
 
 
 class Application {
@@ -22,4 +22,6 @@ public:
                          const std::string &shader_file = "Shader.frag");
 
     void run();
+    sf::Vector2f UpdatePicture(sf::Vector3f& dir);
+    void Redraw(sf::Vector2f vec);
 };
