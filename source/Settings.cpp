@@ -1,6 +1,6 @@
 #include "../headers/Settings.hpp"
-#include "cmath"
 #include "../headers/FileReader.hpp"
+#include "cmath"
 
 void Settings::RotateLeft() {
     window_step_x -= window_step;
@@ -99,26 +99,10 @@ sf::Vector2f Settings::UpdatePicture() {
     dir.y = dirTemp.x * std::sin(mx) + dirTemp.y * std::cos(mx);
     dir.z = dirTemp.z;
     pos += dir * speed;
-    return sf::Vector2f(mx, my);
+    return {mx, my};
 }
 
 void Settings::ResetDir() {
     dir = sf::Vector3f(0.0f, 0.0f, 0.0f);
 }
 
-void Settings::Reset() {
-    auto image = FileReader::get_settings("input"); //вот это безобразие надо соптимизировать
-    window_w = image.window_w;
-    window_h = image.window_h;
-    window_step = image.window_step;
-    samples = image.samples;
-    max_ref = image.max_ref;
-    window_step_x = image.window_step_x;
-    window_step_y = image.window_step_y;
-    speed = image.speed;
-    offset_step = image.offset_step;
-    max_dist = image.max_dist;
-    pos = image.pos;
-    offset = image.offset;
-    lightPos = image.lightPos;
-}

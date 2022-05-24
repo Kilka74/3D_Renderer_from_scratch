@@ -1,13 +1,6 @@
 #include "../headers/KeyboardHandler.hpp"
 
-KeyboardHandler::KeyboardHandler(
-    Window& window,
-    Settings& current_settings) :
-    _window(window),
-    _current_settings(current_settings)
-    {}
-
-void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
+void KeyboardHandler::handle(const sf::Keyboard::Key &code) {
     switch (code) {
         case sf::Keyboard::Escape:
             _window.setMouseCursorVisible(true);
@@ -62,9 +55,6 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
             break;
         case sf::Keyboard::Slash:
             _current_settings.ResetOffset();
-            break;
-        case sf::Keyboard::Enter:
-            _current_settings.Reset();
             break;
         default:
             break;
