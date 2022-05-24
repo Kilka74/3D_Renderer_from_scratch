@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Figure.hpp"
 #include <vector>
+#include <memory>
 
 
 struct WorldImage {
@@ -37,5 +38,5 @@ public:
         tri_col(image.tri_col) {};
 
     void LoadToShader(sf::Shader& shader) const;
-    std::vector<Figure*> Figures();
+    std::vector<std::shared_ptr<Figure>> Figures();
 };

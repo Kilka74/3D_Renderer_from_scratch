@@ -24,7 +24,4 @@ void Application::run() {
         }
         window.FinishChanges();
     }
-    for (auto& f : figures) {
-        delete f;
-    }
 }
