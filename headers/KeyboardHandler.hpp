@@ -1,15 +1,8 @@
-#pragma once
-#include "Settings.hpp"
-#include "Window.hpp"
+//
+// Created by arslan on 24.05.22.
+//
 
+#ifndef INC_3D_RENDERER_FROM_SCRATCH_KEYBOARDHANDLER_HPP
+#define INC_3D_RENDERER_FROM_SCRATCH_KEYBOARDHANDLER_HPP
 
-class KeyboardHandler {
-    Window& _window;
-    Settings& _current_settings;
-
-public:
-    KeyboardHandler(Window& window,
-                    Settings& current_settings);
-
-    void handle(const sf::Keyboard::Key& code);
-};
+#endif //INC_3D_RENDERER_FROM_SCRATCH_KEYBOARDHANDLER_HPP
