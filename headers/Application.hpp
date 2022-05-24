@@ -10,7 +10,7 @@
 
 
 class Application {
-    friend struct Window;
+    friend class Window;
     
     Settings settings;
     World world;
@@ -22,5 +22,4 @@ public:
                          const std::string &shader_file = "Shader.frag");
 
     void run();
-    void Redraw(sf::Vector2f vec);
 };

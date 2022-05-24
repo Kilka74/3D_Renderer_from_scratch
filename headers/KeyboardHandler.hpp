@@ -1,14 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Settings.hpp"
+#include "Window.hpp"
 
 
 class KeyboardHandler {
-    sf::RenderWindow& _window;
+    Window& _window;
     Settings& _current_settings;
 
 public:
-    KeyboardHandler(sf::RenderWindow& window,
+    KeyboardHandler(Window& window,
                     Settings& current_settings);
 
     void handle(const sf::Keyboard::Key& code);

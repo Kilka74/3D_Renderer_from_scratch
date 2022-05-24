@@ -3,7 +3,7 @@
 #include "FileReader.hpp"
 
 
-struct Window {
+class Window {
     sf::RenderWindow _window;
     sf::Shader _shader;
     bool _change;
@@ -14,4 +14,12 @@ struct Window {
 
 public:
     Window(const Settings &settings, const World &world, const std::string &shader_name);
+    void Redraw(const sf::Vector2f& vec, Settings& settings);
+    void setMouseCursorVisible(bool flag);
+    void StartChanges();
+    void FinishChanges();
+    bool IsChanges();
+    bool IsOpen();
+    bool PollEvent(sf::Event& event);
+    void Close();
 };

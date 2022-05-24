@@ -18,3 +18,44 @@ Window::Window(const Settings &settings, const World &world, const std::string &
     _dist = std::uniform_real_distribution<>(0.0f, 1.0f);
     _change = true;
 }
+
+void Window::Redraw(const sf::Vector2f& vec, Settings& settings) {
+    settings.PrepareShader(_shader);
+    _shader.setUniform("u_angle", vec);
+    _shader.setUniform("u_seed1",
+                               sf::Vector2f((float) _dist(_e2), (float) _dist(_e2)) *
+                               999.0f);
+    _shader.setUniform("u_seed2",
+                               sf::Vector2f((float) _dist(_e2), (float) _dist(_e2)) *
+                               999.0f);
+    _window.draw(_emptySprite, &_shader);
+    _window.display();
+}
+
+void Window::setMouseCursorVisible(bool flag) {
+    _window.setMouseCursorVisible(flag);
+}
+
+void Window::StartChanges() {
+     _change = true;
+}
+
+void Window::FinishChanges() {
+    _change = false;
+}
+
+bool Window::IsChanges() {
+    return _change;
+}
+
+bool Window::IsOpen() {
+    return _window.isOpen();
+}
+
+bool Window::PollEvent(sf::Event& event) {
+    return _window.pollEvent(event);
+}
+
+void Window::Close() {
+    _window.close();
+}

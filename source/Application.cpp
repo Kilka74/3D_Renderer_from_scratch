@@ -8,37 +8,24 @@ Application::Application(const std::string &settings_file, const std::string &ob
         window(settings, world, shader_file) {}
 
 void Application::run() {
-    while (window._window.isOpen()) {
+    while (window.IsOpen()) {
         sf::Event event{};
         settings.ResetDir();
-        while (window._window.pollEvent(event)) {
-            window._change = true;
-            KeyboardHandler handler(window._window, settings);
+        while (window.PollEvent(event)) {
+            window.StartChanges();
+            KeyboardHandler handler(window, settings);
             if (event.type == sf::Event::Closed) {
-                window._window.close();
+                window.Close();
             } else if (event.type == sf::Event::MouseButtonPressed) {
-                window._window.setMouseCursorVisible(false);
+                window.setMouseCursorVisible(false);
                 settings.HideMouse();
             } else if (event.type == sf::Event::KeyPressed) {
                 handler.handle(event.key.code);
             }
         }
-        if (settings.IsMouseHidden() && window._change) {
-            Redraw(settings.UpdatePicture());
+        if (settings.IsMouseHidden() && window.IsChanges()) {
+            window.Redraw(settings.UpdatePicture(), settings);
         }
-        window._change = false;
+        window.FinishChanges();
     }
-}
-
-void Application::Redraw(sf::Vector2f vec) {
-    settings.PrepareShader(window._shader);
-    window._shader.setUniform("u_angle", vec);
-    window._shader.setUniform("u_seed1",
-                               sf::Vector2f((float) window._dist(window._e2), (float) window._dist(window._e2)) *
-                               999.0f);
-    window._shader.setUniform("u_seed2",
-                               sf::Vector2f((float) window._dist(window._e2), (float) window._dist(window._e2)) *
-                               999.0f);
-    window._window.draw(window._emptySprite, &window._shader);
-    window._window.display();
 }
