@@ -4,11 +4,9 @@
 
 KeyboardHandler::KeyboardHandler(
     sf::RenderWindow& window,
-    Settings& current_settings,
-    sf::Vector3f& dir) :
+    Settings& current_settings) :
     _window(window),
-    _current_settings(current_settings),
-    _dir(dir)
+    _current_settings(current_settings)
     {}
 
 
@@ -19,16 +17,16 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
             _current_settings.ShowMouse();
             break;
         case sf::Keyboard::W:
-            _dir += {1.0, 0.0, 0.0};
+            _current_settings.MoveForward();
             break;
         case sf::Keyboard::A:
-            _dir += {0.0, -1.0, 0.0};
+            _current_settings.MoveLeft();
             break;
         case sf::Keyboard::S:
-            _dir += {-1.0, 0.0, 0.0};
+            _current_settings.MoveBack();
             break;
         case sf::Keyboard::D:
-            _dir += {0.0, 1.0, 0.0};
+            _current_settings.MoveRight();
             break;
         case sf::Keyboard::Space:
             _current_settings.ShiftUp();

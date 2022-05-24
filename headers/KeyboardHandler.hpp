@@ -6,12 +6,10 @@
 class KeyboardHandler {
     sf::RenderWindow& _window;
     Settings& _current_settings;
-    sf::Vector3f& _dir;
 
 public:
     KeyboardHandler(sf::RenderWindow& window,
-                    Settings& current_settings,
-                    sf::Vector3f& dir);
+                    Settings& current_settings);
 
     void handle(const sf::Keyboard::Key& code);
 };

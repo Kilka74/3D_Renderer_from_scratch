@@ -22,6 +22,5 @@ public:
                          const std::string &shader_file = "Shader.frag");
 
     void run();
-    sf::Vector2f UpdatePicture(sf::Vector3f& dir);
     void Redraw(sf::Vector2f vec);
 };

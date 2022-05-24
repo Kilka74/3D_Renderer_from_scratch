@@ -16,6 +16,7 @@ class Settings {
     float speed, offset_step, max_dist;
     sf::Vector3f pos, offset;
     sf::Vector2f lightPos;
+    sf::Vector3f dir = sf::Vector3f(0.0f, 0.0f, 0.0f);
 
 public:
     explicit Settings(const SettingsImage& image) :
@@ -54,10 +55,7 @@ public:
 
     bool IsMouseHidden();
 
-    float CountMX();    // бтв тут мне тоже непонятно че такое мх му
-    float CountMY();
-
-    void ChangePos(sf::Vector3f& dir);
+    void ChangePos();
 
     void PrepareShader(sf::Shader& shader);
 
@@ -65,6 +63,11 @@ public:
     void CreateTexture(sf::RenderTexture& texture) const;
 
     void PrepareShader2(sf::Shader& shader) const; // и опять какой-то блядский нейминг
+
+    void MoveForward();
+    void MoveLeft();
+    void MoveBack();
+    void MoveRight();
+
+    sf::Vector2f UpdatePicture();
 };
-
-

@@ -10,10 +10,9 @@ Application::Application(const std::string &settings_file, const std::string &ob
 void Application::run() {
     while (window._window.isOpen()) {
         sf::Event event{};
-        sf::Vector3f dir = sf::Vector3f(0.0f, 0.0f, 0.0f);
         while (window._window.pollEvent(event)) {
             window._change = true;
-            KeyboardHandler handler(window._window, settings, dir);
+            KeyboardHandler handler(window._window, settings);
             if (event.type == sf::Event::Closed) {
                 window._window.close();
             } else if (event.type == sf::Event::MouseButtonPressed) {
@@ -24,24 +23,10 @@ void Application::run() {
             }
         }
         if (settings.IsMouseHidden() && window._change) {
-            Redraw(UpdatePicture(dir));
+            Redraw(settings.UpdatePicture());
         }
         window._change = false;
     }
-}
-
-sf::Vector2f Application::UpdatePicture(sf::Vector3f& dir) {
-    float mx = settings.CountMX();
-    float my = settings.CountMY();
-    sf::Vector3f dirTemp;
-    dirTemp.z = dir.z * std::cos(-my) - dir.x * std::sin(-my);
-    dirTemp.x = dir.z * std::sin(-my) + dir.x * std::cos(-my);
-    dirTemp.y = dir.y;
-    dir.x = dirTemp.x * std::cos(mx) - dirTemp.y * std::sin(mx);
-    dir.y = dirTemp.x * std::sin(mx) + dirTemp.y * std::cos(mx);
-    dir.z = dirTemp.z;
-    settings.ChangePos(dir);
-    return sf::Vector2f(mx, my);
 }
 
 void Application::Redraw(sf::Vector2f vec) {
