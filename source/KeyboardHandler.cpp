@@ -59,22 +59,22 @@ void KeyboardHandler::handle(const sf::Keyboard::Key &code) {
             _camera.ResetOffset();
             break;
         case sf::Keyboard::F1:
-            figures[cur_fig]->MoveBack();
+            figures[*cur_fig]->MoveBack();
             break;
         case sf::Keyboard::F2:
-            figures[cur_fig]->MoveDown();
+            figures[*cur_fig]->MoveForward();
             break;
         case sf::Keyboard::F3:
-            figures[cur_fig]->MoveForward();
+            figures[*cur_fig]->MoveLeft();
             break;
         case sf::Keyboard::F4:
-            figures[cur_fig]->MoveLeft();
+            figures[*cur_fig]->MoveRight();
             break;
         case sf::Keyboard::F5:
-            figures[cur_fig]->MoveRight();
+            figures[*cur_fig]->MoveUp();
             break;
         case sf::Keyboard::F6:
-            figures[cur_fig]->MoveUp();
+            figures[*cur_fig]->MoveDown();
             break;
         case sf::Keyboard::Q:
             std::cout << "Q\n";
@@ -93,17 +93,17 @@ void KeyboardHandler::handle(const sf::Keyboard::Key &code) {
 
 void KeyboardHandler::NextFigure() {
     std::cout << "Figures size = " << figures.size() << '\n';
-    if (cur_fig < figures.size() - 1) {
-        cur_fig++;
+    if (*cur_fig < figures.size() - 1) {
+        (*cur_fig)++;
     } else {
-        cur_fig = 0;
+        *cur_fig = 0;
     }
 }
 
 void KeyboardHandler::PrevFigure() {
-    if (cur_fig != 0) {
-        cur_fig--;
+    if (*cur_fig != 0) {
+        (*cur_fig)--;
     } else {
-        cur_fig = figures.size() - 1;
+        *cur_fig = figures.size() - 1;
     }
 }

@@ -23,8 +23,8 @@ std::vector<Figure*> World::Figures() {
     for (auto& v : sph_cord) {
         ans.push_back(new Sphere(&v));
     }
-    for (auto& v : box_cord) {
-        ans.push_back(new Box(&v));
+    for (size_t i = 0; i < box_cord.size(); i+=2) {
+        ans.push_back(new Box(&box_cord[i]));
     }
     for (auto& v : tri_cord) {
         ans.push_back(new Triangle(&v));
