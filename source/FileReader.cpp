@@ -1,8 +1,8 @@
 #include "../headers/FileReader.hpp"
 #include <fstream>
 
-SettingsImage FileReader::get_settings(const std::string &filename) {
-    SettingsImage ans;
+CameraImage FileReader::get_camera(const std::string &filename) {
+    CameraImage ans;
     std::string str;
     std::ifstream in(filename);
     for (int i = 0; i < 9; ++i) {

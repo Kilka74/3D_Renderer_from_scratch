@@ -1,14 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-struct SettingsImage {
+struct CameraImage {
     int window_w, window_h, window_step, samples, max_ref, window_step_x, window_step_y;
     float speed, offset_step, max_dist;
     sf::Vector3f pos, offset;
     sf::Vector2f lightPos;
 };
 
-class Settings {
+class Camera {
     int window_w, window_h, window_step, samples, max_ref, window_step_x, window_step_y;
     float speed, offset_step, max_dist;
     sf::Vector3f pos, offset;
@@ -16,7 +16,7 @@ class Settings {
     sf::Vector3f dir = sf::Vector3f(0.0f, 0.0f, 0.0f);
 
 public:
-    explicit Settings(const SettingsImage& image) :
+    explicit Camera(const CameraImage& image) :
         window_w(image.window_w),
         window_h(image.window_h),
         window_step(image.window_step),

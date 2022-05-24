@@ -13,8 +13,8 @@ class Window {
     sf::Sprite _emptySprite;
 
 public:
-    Window(const Settings &settings, const World &world, const std::string &shader_name);
-    void Redraw(const sf::Vector2f& vec, Settings& settings);
+    Window(const Camera &camera, const World &world, const std::string &shader_name);
+    void Redraw(const sf::Vector2f& vec, Camera& settings);
     void setMouseCursorVisible(bool flag);
     void StartChanges();
     void FinishChanges();

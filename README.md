@@ -28,8 +28,6 @@ To start the program just run ``./bin/sfml-app``
 
 ``Slash`` - reset distortion
 
-``Enter`` - reset all
-
 ``Esc`` - show cursor to close the window
 
 # Screenshots

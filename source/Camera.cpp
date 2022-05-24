@@ -1,73 +1,73 @@
-#include "../headers/Settings.hpp"
+#include "../headers/Camera.hpp"
 #include "../headers/FileReader.hpp"
 #include "cmath"
 
-void Settings::RotateLeft() {
+void Camera::RotateLeft() {
     window_step_x -= window_step;
 }
 
-void Settings::RotateRight() {
+void Camera::RotateRight() {
     window_step_x += window_step;
 }
 
-void Settings::RotateUp() {
+void Camera::RotateUp() {
     window_step_y -= window_step;
 }
 
-void Settings::RotateDown() {
+void Camera::RotateDown() {
     window_step_y += window_step;
 }
 
-void Settings::ShiftUp() {
+void Camera::ShiftUp() {
     pos.z -= speed;
 }
 
-void Settings::ShiftDown() {
+void Camera::ShiftDown() {
     pos.z += speed;
 }
 
-void Settings::ObserverCloser() {
+void Camera::ObserverCloser() {
     offset.x -= offset_step;
 }
 
-void Settings::ObserverAway() {
+void Camera::ObserverAway() {
     offset.x += offset_step;
 }
 
-void Settings::ShrinkWidth() {
+void Camera::ShrinkWidth() {
     offset.y += offset_step;
 }
 
-void Settings::StretchWidth() {
+void Camera::StretchWidth() {
     offset.y -= offset_step;
 }
 
-void Settings::ShrinkHigh() {
+void Camera::ShrinkHigh() {
     offset.z += offset_step;
 }
 
-void Settings::StretchHigh() {
+void Camera::StretchHigh() {
     offset.z -= offset_step;
 }
 
-void Settings::ResetOffset() {
+void Camera::ResetOffset() {
     offset = {1.0, 1.0, 1.0};
 }
 
-void Settings::PrepareShader(sf::Shader& shader) {
+void Camera::PrepareShader(sf::Shader& shader) {
     shader.setUniform("u_offset", offset);
     shader.setUniform("u_pos", pos);
 }
 
-sf::VideoMode Settings::CreateVideoMode() const {
+sf::VideoMode Camera::CreateVideoMode() const {
     return sf::VideoMode(window_w, window_h);
 }
 
-void Settings::CreateTexture(sf::RenderTexture& texture) const {
+void Camera::CreateTexture(sf::RenderTexture& texture) const {
     texture.create(window_w, window_h);
 }
 
-void Settings::LoadToShader(sf::Shader& shader) const {
+void Camera::LoadToShader(sf::Shader& shader) const {
     shader.setUniform("u_resolution", sf::Vector2f(static_cast<float>(window_w), static_cast<float>(window_h)));
     shader.setUniform("u_light", lightPos);
     shader.setUniform("u_samples", samples);
@@ -75,20 +75,20 @@ void Settings::LoadToShader(sf::Shader& shader) const {
     shader.setUniform("u_max_dist", max_dist);
 }
 
-void Settings::MoveForward() {
+void Camera::MoveForward() {
     dir += {1.0, 0.0, 0.0};
 }
-void Settings::MoveLeft() {
+void Camera::MoveLeft() {
     dir += {0.0, -1.0, 0.0};
 }
-void Settings::MoveBack() {
+void Camera::MoveBack() {
     dir += {-1.0, 0.0, 0.0};
 }
-void Settings::MoveRight() {
+void Camera::MoveRight() {
     dir += {0.0, 1.0, 0.0};
 }
 
-sf::Vector2f Settings::UpdatePicture() {
+sf::Vector2f Camera::UpdatePicture() {
     float mx = static_cast<float>(window_step_x) / static_cast<float>(window_w) - 0.5f;
     float my = static_cast<float>(window_step_y) / static_cast<float>(window_h) - 0.5f;
     sf::Vector3f dirTemp;
@@ -102,7 +102,7 @@ sf::Vector2f Settings::UpdatePicture() {
     return {mx, my};
 }
 
-void Settings::ResetDir() {
+void Camera::ResetDir() {
     dir = sf::Vector3f(0.0f, 0.0f, 0.0f);
 }
 

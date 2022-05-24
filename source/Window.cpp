@@ -1,7 +1,7 @@
 #include "../headers/Window.hpp"
 
-Window::Window(const Settings &settings, const World &world, const std::string &shader_name) :
-        _window(settings.CreateVideoMode(),
+Window::Window(const Camera &camera, const World &world, const std::string &shader_name) :
+        _window(camera.CreateVideoMode(),
                 "Ray tracing",
                 sf::Style::Titlebar | sf::Style::Close),
         _shader(),
@@ -11,16 +11,16 @@ Window::Window(const Settings &settings, const World &world, const std::string &
         _emptyTexture() {
     _window.setFramerateLimit(40);
     _window.setMouseCursorVisible(false);
-    settings.CreateTexture(_emptyTexture);
+    camera.CreateTexture(_emptyTexture);
     _emptySprite = sf::Sprite(_emptyTexture.getTexture());
     _shader.loadFromFile(shader_name, sf::Shader::Fragment);
-    settings.LoadToShader(_shader);
+    camera.LoadToShader(_shader);
     world.LoadToShader(_shader);
     std::random_device RandomGenerator;
     _e2 = std::mt19937(RandomGenerator());
 }
 
-void Window::Redraw(const sf::Vector2f &vec, Settings &settings) {
+void Window::Redraw(const sf::Vector2f &vec, Camera &settings) {
     settings.PrepareShader(_shader);
     _shader.setUniform("u_angle", vec);
     _shader.setUniform("u_seed1",

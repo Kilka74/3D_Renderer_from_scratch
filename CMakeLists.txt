@@ -10,13 +10,13 @@ add_executable(3D_Renderer_from_scratch
         headers/Application.hpp
         headers/FileReader.hpp
         headers/KeyboardHandler.hpp
-        headers/Settings.hpp
+        headers/Camera.hpp
         headers/Window.hpp
         headers/World.hpp
         source/Application.cpp
         source/FileReader.cpp
         source/KeyboardHandler.cpp
-        source/Settings.cpp
+        source/Camera.cpp
         source/Window.cpp
         source/World.cpp
         Main.cpp)

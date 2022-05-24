@@ -153,7 +153,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/Settings.hpp",
+			"path" : "headers/Camera.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -187,7 +187,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "source/Settings.cpp",
+			"path" : "source/Camera.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{

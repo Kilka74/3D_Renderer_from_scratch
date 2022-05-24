@@ -6,55 +6,55 @@ void KeyboardHandler::handle(const sf::Keyboard::Key &code) {
             _window.setMouseCursorVisible(true);
             break;
         case sf::Keyboard::W:
-            _current_settings.MoveForward();
+            _camera.MoveForward();
             break;
         case sf::Keyboard::A:
-            _current_settings.MoveLeft();
+            _camera.MoveLeft();
             break;
         case sf::Keyboard::S:
-            _current_settings.MoveBack();
+            _camera.MoveBack();
             break;
         case sf::Keyboard::D:
-            _current_settings.MoveRight();
+            _camera.MoveRight();
             break;
         case sf::Keyboard::Space:
-            _current_settings.ShiftUp();
+            _camera.ShiftUp();
             break;
         case sf::Keyboard::C:
-            _current_settings.ShiftDown();
+            _camera.ShiftDown();
             break;
         case sf::Keyboard::Left:
-            _current_settings.RotateLeft();
+            _camera.RotateLeft();
             break;
         case sf::Keyboard::Right:
-            _current_settings.RotateRight();
+            _camera.RotateRight();
             break;
         case sf::Keyboard::Up:
-            _current_settings.RotateUp();
+            _camera.RotateUp();
             break;
         case sf::Keyboard::Down:
-            _current_settings.RotateDown();
+            _camera.RotateDown();
             break;
         case sf::Keyboard::Period:
-            _current_settings.ObserverAway();
+            _camera.ObserverAway();
             break;
         case sf::Keyboard::Comma:
-            _current_settings.ObserverCloser();
+            _camera.ObserverCloser();
             break;
         case sf::Keyboard::Quote:
-            _current_settings.ShrinkWidth();
+            _camera.ShrinkWidth();
             break;
         case sf::Keyboard::Semicolon:
-            _current_settings.StretchWidth();
+            _camera.StretchWidth();
             break;
         case sf::Keyboard::LBracket:
-            _current_settings.ShrinkHigh();
+            _camera.ShrinkHigh();
             break;
         case sf::Keyboard::RBracket:
-            _current_settings.StretchHigh();
+            _camera.StretchHigh();
             break;
         case sf::Keyboard::Slash:
-            _current_settings.ResetOffset();
+            _camera.ResetOffset();
             break;
         default:
             break;

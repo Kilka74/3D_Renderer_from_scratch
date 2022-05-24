@@ -1,16 +1,15 @@
 #pragma once
-
-#include "Settings.hpp"
+#include "Camera.hpp"
 #include "Window.hpp"
 
 
 class KeyboardHandler {
     Window &_window;
-    Settings &_current_settings;
+    Camera &_camera;
 
 public:
-    explicit KeyboardHandler(Window &window, Settings &current_settings) :
-            _window(window), _current_settings(current_settings) {};
+    explicit KeyboardHandler(Window &window, Camera &camera) :
+            _window(window), _camera(camera) {};
 
     void handle(const sf::Keyboard::Key &code);
 };

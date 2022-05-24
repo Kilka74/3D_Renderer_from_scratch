@@ -3,10 +3,10 @@
 void Application::run() {
     while (window.IsOpen()) {
         sf::Event event{};
-        settings.ResetDir();
+        camera.ResetDir();
         while (window.PollEvent(event)) {
             window.StartChanges();
-            KeyboardHandler handler(window, settings);
+            KeyboardHandler handler(window, camera);
             if (event.type == sf::Event::Closed) {
                 window.Close();
             } else if (event.type == sf::Event::MouseButtonPressed) {
@@ -16,7 +16,7 @@ void Application::run() {
             }
         }
         if (window.NeedRedraw()) {
-            window.Redraw(settings.UpdatePicture(), settings);
+            window.Redraw(camera.UpdatePicture(), camera);
         }
         window.FinishChanges();
     }
