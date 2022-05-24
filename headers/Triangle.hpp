@@ -4,10 +4,10 @@
 
 
 class Triangle : public Figure {
-    //sf::Glsl::Mat3* coordinates;
+    sf::Glsl::Mat3* coordinates;
 
 public:
-    explicit Triangle(sf::Glsl::Mat3* c) {}
+    explicit Triangle(sf::Glsl::Mat3* c) : coordinates(c) {}
     void MoveForward();
     void MoveBack();
     void MoveLeft();
