@@ -36,7 +36,6 @@ SettingsImage FileReader::get_settings(const std::string &filename) {
     }
     ans.window_step_x = ans.window_w / 2;
     ans.window_step_y = ans.window_h / 2;
-    ans.mouseHidden = true;
     ans.offset = {1.0, 1.0, 1.0};
     in.close();
     return ans;

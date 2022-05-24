@@ -7,12 +7,10 @@ KeyboardHandler::KeyboardHandler(
     _current_settings(current_settings)
     {}
 
-
 void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
     switch (code) {
         case sf::Keyboard::Escape:
-            _window.setMouseCursorVisible(true);     // то что одно событие контролится двумя объектами
-            _current_settings.ShowMouse();           // вообще говоря нехорошо
+            _window.setMouseCursorVisible(true);
             break;
         case sf::Keyboard::W:
             _current_settings.MoveForward();

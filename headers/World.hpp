@@ -24,14 +24,14 @@ class World {
 
 public:
     explicit World(const WorldImage& image) :
-        pla_norm(image.pla_norm),     // вот тут надо помувать и в сеттинсах тоже но мне лень
+        pla_norm(image.pla_norm),
         pla_col(image.pla_col),
         sph_cord(image.sph_cord),
         sph_col(image.sph_col),
         box_cord(image.box_cord),
         box_col(image.box_col),
         tri_cord(image.tri_cord),
-        tri_col(image.tri_col) {}
+        tri_col(image.tri_col) {};
 
     void LoadToShader(sf::Shader& shader) const;
 };

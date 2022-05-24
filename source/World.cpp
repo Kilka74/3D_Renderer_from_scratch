@@ -1,6 +1,5 @@
 #include "../headers/World.hpp"
 
-
 void World::LoadToShader(sf::Shader& shader) const {
     shader.setUniform("u_pla_norm", pla_norm);
     shader.setUniform("u_pla_col", pla_col);

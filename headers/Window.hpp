@@ -2,15 +2,15 @@
 #include <random>
 #include "FileReader.hpp"
 
-
 class Window {
     sf::RenderWindow _window;
     sf::Shader _shader;
     bool _change;
+    bool _mouseHidden;
     std::uniform_real_distribution<> _dist;
+    std::mt19937 _e2;
     sf::RenderTexture _emptyTexture;
     sf::Sprite _emptySprite;
-    std::mt19937 _e2;
 
 public:
     Window(const Settings &settings, const World &world, const std::string &shader_name);
@@ -18,7 +18,7 @@ public:
     void setMouseCursorVisible(bool flag);
     void StartChanges();
     void FinishChanges();
-    bool IsChanges() const;
+    bool NeedRedraw() const;
     bool IsOpen();
     bool PollEvent(sf::Event& event);
     void Close();

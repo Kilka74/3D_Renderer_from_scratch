@@ -2,14 +2,6 @@
 #include "cmath"
 #include "../headers/FileReader.hpp"
 
-void Settings::HideMouse() {
-    mouseHidden = true;
-}
-
-void Settings::ShowMouse() {
-    mouseHidden = false;
-}
-
 void Settings::RotateLeft() {
     window_step_x -= window_step;
 }
@@ -60,10 +52,6 @@ void Settings::StretchHigh() {
 
 void Settings::ResetOffset() {
     offset = {1.0, 1.0, 1.0};
-}
-
-bool Settings::IsMouseHidden() {
-    return mouseHidden;     
 }
 
 void Settings::PrepareShader(sf::Shader& shader) {
@@ -127,7 +115,6 @@ void Settings::Reset() {
     max_ref = image.max_ref;
     window_step_x = image.window_step_x;
     window_step_y = image.window_step_y;
-    mouseHidden = image.mouseHidden;
     speed = image.speed;
     offset_step = image.offset_step;
     max_dist = image.max_dist;

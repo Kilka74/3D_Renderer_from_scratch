@@ -1,11 +1,4 @@
 #include "../headers/Application.hpp"
-#include <iostream>
-
-Application::Application(const std::string &settings_file, const std::string &objects_file,
-                         const std::string &shader_file) :
-        settings(FileReader::get_settings(settings_file)),
-        world(FileReader::get_world(objects_file)),
-        window(settings, world, shader_file) {}
 
 void Application::run() {
     while (window.IsOpen()) {
@@ -18,12 +11,11 @@ void Application::run() {
                 window.Close();
             } else if (event.type == sf::Event::MouseButtonPressed) {
                 window.setMouseCursorVisible(false);
-                settings.HideMouse();
             } else if (event.type == sf::Event::KeyPressed) {
                 handler.handle(event.key.code);
             }
         }
-        if (settings.IsMouseHidden() && window.IsChanges()) {
+        if (window.NeedRedraw()) {
             window.Redraw(settings.UpdatePicture(), settings);
         }
         window.FinishChanges();
