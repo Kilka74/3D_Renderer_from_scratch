@@ -35,7 +35,7 @@ void Window::Redraw(const sf::Vector2f &vec, Camera &settings) {
 
 void Window::setMouseCursorVisible(bool flag) {
     _window.setMouseCursorVisible(flag);
-    _mouseHidden = flag;
+    _mouseHidden = !flag;
 }
 
 void Window::StartChanges() {

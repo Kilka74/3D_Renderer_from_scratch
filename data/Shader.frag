@@ -249,16 +249,20 @@ vec4 castRay(inout vec3 ro, inout vec3 rd) {
     }
 
     vec3 reflected = reflect(rd, n);
-    if (col.a < 0.0) {
-        ro += rd * (minIt.y + 0.001);
-        rd = refract(rd, n, -col.a);
-        return col;
-    }
     vec3 itPos = ro + rd * it.x;
-    vec3 r = randomOnSphere();
-    vec3 diffuse = normalize(r * dot(r, n));
     ro += rd * (minIt.x - 0.001);
-    rd = mix(diffuse, reflected, col.a);
+    vec3 r = randomOnSphere();
+    float c = dot(r, n);
+    if (abs(c) * (col.a + 0.001) < 0.00001) {
+        col.a = 1000.0;
+        col.rgb *= max(dot(light, n), 0);
+        col.x = pow(col.x, 0.45);
+        col.y = pow(col.y, 0.45);
+        col.z = pow(col.z, 0.45);
+        rd *= -1;
+    } else {
+        rd = mix(normalize(r * c), reflected, col.a);
+    }
     return col;
 }
 
