@@ -42,23 +42,23 @@ void Settings::ObserverAway() {
     offset.x += offset_step;
 }
 
-void Settings::Distorsion1() {
+void Settings::ShrinkWidth() {
     offset.y += offset_step;
 }
 
-void Settings::Distorsion2() {
+void Settings::StretchWidth() {
     offset.y -= offset_step;
 }
 
-void Settings::Distorsion3() {
+void Settings::ShrinkHigh() {
     offset.z += offset_step;
 }
 
-void Settings::Distorsion4() {
+void Settings::StretchHigh() {
     offset.z -= offset_step;
 }
 
-void Settings::Slash() {
+void Settings::ResetOffset() {
     offset = {1.0, 1.0, 1.0};
 }
 
@@ -79,7 +79,7 @@ void Settings::CreateTexture(sf::RenderTexture& texture) const {
     texture.create(window_w, window_h);
 }
 
-void Settings::PrepareShader2(sf::Shader& shader) const {
+void Settings::LoadToShader(sf::Shader& shader) const {
     shader.setUniform("u_resolution", sf::Vector2f(static_cast<float>(window_w), static_cast<float>(window_h)));
     shader.setUniform("u_light", lightPos);
     shader.setUniform("u_samples", samples);

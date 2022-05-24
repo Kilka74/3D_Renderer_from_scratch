@@ -11,7 +11,7 @@ Window::Window(const Settings &settings, const World &world, const std::string &
     settings.CreateTexture(_emptyTexture);
     _emptySprite = sf::Sprite(_emptyTexture.getTexture());
     _shader.loadFromFile(shader_name, sf::Shader::Fragment);
-    settings.PrepareShader2(_shader);
+    settings.LoadToShader(_shader);
     world.LoadToShader(_shader);
     std::random_device RandomGenerator;
     _e2 = std::mt19937(RandomGenerator());
@@ -44,7 +44,7 @@ void Window::FinishChanges() {
     _change = false;
 }
 
-bool Window::IsChanges() {
+bool Window::IsChanges() const {
     return _change;
 }
 

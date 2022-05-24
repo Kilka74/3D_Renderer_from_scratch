@@ -1,5 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "Settings.hpp"
 #include "Window.hpp"
 

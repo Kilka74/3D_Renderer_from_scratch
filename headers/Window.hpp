@@ -18,7 +18,7 @@ public:
     void setMouseCursorVisible(bool flag);
     void StartChanges();
     void FinishChanges();
-    bool IsChanges();
+    bool IsChanges() const;
     bool IsOpen();
     bool PollEvent(sf::Event& event);
     void Close();

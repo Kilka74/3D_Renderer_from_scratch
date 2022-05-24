@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-//#include "FileReader.hpp"
 
 struct SettingsImage {
     int window_w, window_h, window_step, samples, max_ref, window_step_x, window_step_y;
@@ -46,12 +45,12 @@ public:
     void ObserverCloser();
     void ObserverAway();
 
-    void Distorsion1(); // Арслан зайди в ../source/KeyboardHandler.cpp посмотри что они делают
-    void Distorsion2(); // и переименуй нормально я в душе не ебу че тут писать
-    void Distorsion3();
-    void Distorsion4();
+    void ShrinkWidth();
+    void StretchWidth();
+    void ShrinkHigh();
+    void StretchHigh();
 
-    void Slash();       // и тут тоже хуй знает как это назвать
+    void ResetOffset();
 
     bool IsMouseHidden();
 
@@ -62,7 +61,7 @@ public:
     sf::VideoMode CreateVideoMode() const;
     void CreateTexture(sf::RenderTexture& texture) const;
 
-    void PrepareShader2(sf::Shader& shader) const; // и опять какой-то блядский нейминг
+    void LoadToShader(sf::Shader& shader) const;
 
     void MoveForward();
     void MoveLeft();

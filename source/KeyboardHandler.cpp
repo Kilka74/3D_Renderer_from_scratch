@@ -1,6 +1,4 @@
 #include "../headers/KeyboardHandler.hpp"
-#include "../headers/Settings.hpp"
-
 
 KeyboardHandler::KeyboardHandler(
     Window& window,
@@ -53,19 +51,19 @@ void KeyboardHandler::handle(const sf::Keyboard::Key& code) {
             _current_settings.ObserverCloser();
             break;
         case sf::Keyboard::Quote:
-            _current_settings.Distorsion1();
+            _current_settings.ShrinkWidth();
             break;
         case sf::Keyboard::Semicolon:
-            _current_settings.Distorsion2();
+            _current_settings.StretchWidth();
             break;
         case sf::Keyboard::LBracket:
-            _current_settings.Distorsion3();
+            _current_settings.ShrinkHigh();
             break;
         case sf::Keyboard::RBracket:
-            _current_settings.Distorsion4();
+            _current_settings.StretchHigh();
             break;
         case sf::Keyboard::Slash:
-            _current_settings.Slash();
+            _current_settings.ResetOffset();
             break;
         case sf::Keyboard::Enter:
             _current_settings.Reset();
