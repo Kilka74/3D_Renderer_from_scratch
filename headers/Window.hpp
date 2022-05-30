@@ -22,4 +22,5 @@ public:
     bool IsOpen();
     bool PollEvent(sf::Event& event);
     void Close();
+    void ReloadWorld(World& world);
 };

@@ -61,3 +61,7 @@ bool Window::PollEvent(sf::Event &event) {
 void Window::Close() {
     _window.close();
 }
+
+void Window::ReloadWorld(World& world) {
+    world.LoadToShader(_shader);
+}
