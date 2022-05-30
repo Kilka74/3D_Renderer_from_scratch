@@ -1,0 +1,9 @@
+window_size 1000 1000
+speed 0.3
+offset_step 0.01
+window_step 30
+samples 50
+references 50
+distance 300
+start_pos 0.0 0.0 10.0
+light 0.0 -1.0
